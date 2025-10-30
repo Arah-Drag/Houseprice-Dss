@@ -11,7 +11,7 @@ from sklearn.metrics import r2_score
 # -------------------------------------------------------
 # Load Dataset
 # -------------------------------------------------------
-df = pd.read_csv("Bengaluru_House_Data.csv")
+df = pd.read_csv("Cleaned_Bengaluru_House_Data.csv")
 
 # -------------------------------------------------------
 # Data Cleaning & Feature Engineering

@@ -16,7 +16,7 @@ except Exception as e:
 # Load Dataset for Dropdown Values
 # -------------------------------------------------------
 try:
-    df = pd.read_csv("Bengaluru_House_Data.csv")
+    df = pd.read_csv("Cleaned_Bengaluru_House_Data.csv")
     df.dropna(subset=["location", "society"], inplace=True)
     unique_locations = sorted(df["location"].unique().tolist())
     unique_societies = sorted(df["society"].unique().tolist())
