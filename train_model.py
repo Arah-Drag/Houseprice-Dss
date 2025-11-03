@@ -1,4 +1,3 @@
-# train_model.py
 import pandas as pd
 import joblib
 from sklearn.model_selection import train_test_split
@@ -8,25 +7,12 @@ from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
 from sklearn.metrics import r2_score
 
-# -------------------------------------------------------
-# Load Dataset
-# -------------------------------------------------------
 df = pd.read_csv("Cleaned_Bengaluru_House_Data.csv")
-
-# -------------------------------------------------------
-# Data Cleaning & Feature Engineering
-# -------------------------------------------------------
-
-# Drop rows with missing essential fields
 df = df.dropna(subset=["area_type", "society", "location", "total_sqft", "bath", "balcony", "size", "price"])
-
-# Extract BHK number from 'size' column (e.g., "2 BHK" -> 2)
 df["BHK"] = df["size"].apply(lambda x: int(str(x).split()[0]) if isinstance(x, str) else None)
 
-# Remove rows with invalid or 0 BHK
 df = df[df["BHK"] > 0]
 
-# Remove rows with non-numeric or invalid total_sqft
 def clean_sqft(x):
     try:
         if isinstance(x, str) and "-" in x:
