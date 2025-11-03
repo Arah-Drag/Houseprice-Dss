@@ -129,3 +129,33 @@ if st.button("🧹 Clear Chat"):
 
 st.markdown("---")
 st.caption("Developed by Arasu | M.Sc. Computational Statistics & Data Analytics | DSS using Machine Learning & AI 🤖")
+
+# -------------------------------------------------------
+# 🗣️ Feedback Section
+# -------------------------------------------------------
+st.write("---")
+st.subheader("🗣️ User Feedback")
+
+st.write("We value your feedback! Please rate your satisfaction with the prediction and share your thoughts below.")
+
+# Star rating system
+rating = st.slider("⭐ Rate the prediction accuracy (1 = Poor, 5 = Excellent):", 1, 5, 3)
+
+# Text feedback box
+comments = st.text_area("💬 Additional comments or suggestions:")
+
+# Submit button
+if st.button("📤 Submit Feedback"):
+    feedback_data = {
+        "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "rating": rating,
+        "comments": comments
+    }
+
+    try:
+        # Save feedback locally
+        feedback_df = pd.DataFrame([feedback_data])
+        feedback_df.to_csv("user_feedback.csv", mode="a", index=False, header=not pd.io.common.file_exists("user_feedback.csv"))
+        st.success("✅ Thank you for your feedback! It will help us improve the model.")
+    except Exception as e:
+        st.error(f"⚠️ Could not save feedback: {e}")
