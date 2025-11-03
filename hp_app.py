@@ -81,8 +81,8 @@ if "chat_history" not in st.session_state:
 faq = {
     # --- Core Feature Explanations ---
     "what is bhk": "BHK stands for Bedroom, Hall, and Kitchen — a standard way to describe property size in India.",
-    "what is total_sqft": "Total_sqft means the total built-up area of the property in square feet.",
-    "what is area_type": "Area Type specifies whether it's a Super built-up Area, Built-up Area, Carpet Area, or Plot Area.",
+    "what is total squarefeet": "Total_sqft means the total built-up area of the property in square feet.",
+    "what is area type": "Area Type specifies whether it's a Super built-up Area, Built-up Area, Carpet Area, or Plot Area.",
     "what is society": "Society refers to the residential project or gated community where the property is located.",
     "what is location": "Location represents the neighborhood or area in Bengaluru where the property lies.",
     "what is balcony": "Balcony indicates the number of outdoor spaces attached to the property.",
